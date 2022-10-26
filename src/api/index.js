@@ -1,10 +1,10 @@
 const express = require('express');
-const ruta = express.Router()
+const rutaAuthentication = require('./authentication');
+const rutaLogearse = require( './logearse' );
+const ruta = express.Router();
 
-ruta.get('/' , ( req , res ) => {
-    res.send({
-        mensaje: 'ahi mero va'
-    })
-})
+
+ruta.use( '/autentificacion' , rutaAuthentication )
+ruta.use('/logearse' , rutaLogearse)
 
 module.exports = ruta
